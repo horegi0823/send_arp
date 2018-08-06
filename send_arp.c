@@ -58,7 +58,7 @@ void print_ip(uint8_t* ip){
 void construct_eth(struct ether_header* eth, uint8_t* dst_mac, uint8_t* src_mac){
 	memcpy(eth->ether_dhost,dst_mac,6);
 	memcpy(eth->ether_shost,src_mac,6);
-	eth->ether_type=ntohs(ETHERTYPE_ARP);
+	eth->ether_type=htons(ETHERTYPE_ARP);
 }
 
 void construct_arp(struct ether_arp *arp, uint8_t* dst_mac, uint8_t* src_mac, uint8_t* dst_ip, uint8_t* src_ip, int opcode){
